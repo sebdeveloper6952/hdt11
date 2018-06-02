@@ -20,13 +20,14 @@ public class GraphMatrixDirected<V,E> implements Graph<V,E> {
     }
 
     @Override
-    public void addVertex(V vertex) {
+    public boolean addVertex(V vertex) {
         // no se permiten vertices duplicados
-        if(map.containsKey(vertex)) return;
+        if(map.containsKey(vertex)) return false;
         // indice de primer fila vacia
-        int row = freeList.get(0);
+        int row = freeList.remove(0);
         // insertar vertice en mapa
         map.put(vertex, new Vertex<>(vertex, row));
+        return true;
     }
 
     @Override

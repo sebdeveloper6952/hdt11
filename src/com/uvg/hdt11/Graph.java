@@ -1,7 +1,7 @@
 package com.uvg.hdt11;
 
 public interface Graph<V,E> {
-    void addVertex(V vertex);
+    boolean addVertex(V vertex);
     boolean addEdge(V vertex0, V vertex1, E weight);
     V removeVertex(V vertex);
     E removeEdge(V vertex0, V vertex1);
