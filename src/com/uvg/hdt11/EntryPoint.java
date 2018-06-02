@@ -21,9 +21,10 @@ public class EntryPoint {
             mostrarMenu();
             opcion = Integer.parseInt(s.next());
             try {
+                String ciudad, ciudad1, ciudad2;
+                Float distancia;
                 switch (opcion) {
                     case 1:
-                        String ciudad;
                         System.out.println("Ingrese ciudad: ");
                         s.nextLine();
                         ciudad = s.nextLine();
@@ -34,8 +35,6 @@ public class EntryPoint {
                         System.out.println("Ciudad agregada...");
                         break;
                     case 2:
-                        String ciudad1, ciudad2;
-                        Float distancia;
                         System.out.println("Ingrese ciudad1: ");
                         s.nextLine();
                         ciudad1 = s.nextLine();
@@ -53,9 +52,20 @@ public class EntryPoint {
                         System.out.println("Arista agregada...");
                         break;
                     case 3:
-                        System.out.println("Ejecutando algoritmo de Floyd...");
+                        System.out.println("Ingrese ciudad1: ");
+                        s.nextLine();
+                        ciudad1 = s.nextLine();
+                        System.out.println("Ingrese ciudad2: ");
+                        ciudad2 = s.nextLine();
+                        if(grafo.removeEdge(ciudad1, ciudad2) == null) {
+                            System.out.println("Error en nombre de ciudad.");
+                        }
+                        System.out.println("Coneccion entre ciudades eliminada.");
                         break;
                     case 4:
+                        System.out.println("Ejecutando algoritmo de Floyd...");
+                        break;
+                    case 5:
                         System.out.println("Saliendo del programa...");
                         break;
                     default:
@@ -73,8 +83,9 @@ public class EntryPoint {
         System.out.println("************ Menu ************");
         System.out.println("1. Agregar ciudad");
         System.out.println("2. Agregar coneccion entre ciudades");
-        System.out.println("3. Ejecutar algoritmo de Floyd");
-        System.out.println("4. Salir del programa");
+        System.out.println("3. Eliminar coneccion entre ciudades");
+        System.out.println("4. Ejecutar algoritmo de Floyd");
+        System.out.println("5. Salir del programa");
         System.out.print("Ingrese numero de opcion: ");
     }
 

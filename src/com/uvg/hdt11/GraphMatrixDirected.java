@@ -65,6 +65,8 @@ public class GraphMatrixDirected<V,E> implements Graph<V,E> {
         // borrar arista en arreglo2D
         Edge<V, E> edge = (Edge<V, E>) data[v0.row()][v1.row()];
         if(edge == null) return null;
+        // eliminar arista de matriz
+        data[v0.row()][v1.row()] = null;
         return edge.weight();
     }
 
