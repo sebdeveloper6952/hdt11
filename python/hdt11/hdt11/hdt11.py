@@ -13,8 +13,9 @@ def imprimir_menu():
     print("2. Agregar coneccion entre ciudades")
     print("3. Eliminar coneccion entre ciudades")
     print("4. Algoritmo de Floyd")
-    print("5. Mostrar matriz de adyacencia")
-    print("6. Salir del programa")
+    print("5. Centro del grafo")
+    print("6. Mostrar matriz de adyacencia")
+    print("7. Salir del programa")
     print("Ingrese opcion: ")
 
 # lee el archivo guategrafo.txt y agrega nodos y aristas al grafo
@@ -32,7 +33,7 @@ opcion = ""
 iniciar_grafo()
 predMap, distMap = nx.floyd_warshall_predecessor_and_distance(graph, weight='distancia')
 
-while (opcion != "6"):
+while (opcion != "7"):
     imprimir_menu()
     opcion = input()
     if(opcion == "1"):
@@ -73,9 +74,14 @@ while (opcion != "6"):
             camino.append(ciudad2)
         print(list(reversed(camino)))
     elif(opcion == "5"):
+        # mostrar centros del grafo
+        print("Las mejores ciudades para colocar sucursales son:")
+        centros = nx.center(graph)
+        print(centros)
+    elif(opcion == "6"):
         # imprimir matriz de adyacencia
         print(nx.adjacency_matrix(graph).todense())
-    elif(opcion == "6"):
+    elif(opcion == "7"):
         print("Saliendo del programa...")
         break
 
