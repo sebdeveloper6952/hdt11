@@ -10,14 +10,14 @@ public class EntryPoint {
 
     public static void main(String[] args) {
         // inicializar grafo
-        GraphMatrixDirected<String, Float> grafo =  new GraphMatrixDirected<>(50);
+        GraphMatrixDirected<String, Float> grafo =  new GraphMatrixDirected<>(30);
         // leer archivo para crear grafo
         iniciarGrafo(grafo);
         System.out.println("Se agregaron las ciudades al grafo...");
         // loop
         Scanner s = new Scanner(System.in);
         int opcion = -1;
-        while(opcion != 4) {
+        while(opcion != 6) {
             mostrarMenu();
             opcion = Integer.parseInt(s.next());
             try {
@@ -66,6 +66,9 @@ public class EntryPoint {
                         System.out.println("Ejecutando algoritmo de Floyd...");
                         break;
                     case 5:
+                        grafo.printAdjacencyMatrix();
+                        break;
+                    case 6:
                         System.out.println("Saliendo del programa...");
                         break;
                     default:
@@ -85,7 +88,8 @@ public class EntryPoint {
         System.out.println("2. Agregar coneccion entre ciudades");
         System.out.println("3. Eliminar coneccion entre ciudades");
         System.out.println("4. Ejecutar algoritmo de Floyd");
-        System.out.println("5. Salir del programa");
+        System.out.println("5. Imprimir matriz de adyacencia");
+        System.out.println("6. Salir del programa");
         System.out.print("Ingrese numero de opcion: ");
     }
 

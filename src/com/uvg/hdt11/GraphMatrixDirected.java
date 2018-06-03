@@ -114,4 +114,15 @@ public class GraphMatrixDirected<V,E> implements Graph<V,E> {
     public boolean isEdgeVisited(Edge<V, E> edge) {
         return edge.isVisited();
     }
+
+    void printAdjacencyMatrix() {
+        for(int i = 0; i < size; i++) {
+            System.out.print("[");
+            for(int j = 0; j < size; j++) {
+                if(data[i][j] == null) System.out.print("0,");
+                else System.out.print("1,");
+                if(j == (size-1)) System.out.println("]");
+            }
+        }
+    }
 }
