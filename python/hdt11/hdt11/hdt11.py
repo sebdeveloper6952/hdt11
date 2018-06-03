@@ -36,8 +36,10 @@ while (opcion != "6"):
     imprimir_menu()
     opcion = input()
     if(opcion == "1"):
+      print("Ingresar nombre de ciudad:")
       ciudad = input()
       graph.add_node(ciudad)
+      print("Ciudad agregada al grafo...")
     elif(opcion == "2"):
         print("Ingrese ciudad origen: ")
         ciudad1 = input()
@@ -48,6 +50,7 @@ while (opcion != "6"):
         graph.add_edge(ciudad1, ciudad2, distancia=dist)
         # ejecutar el algoritmo de floyd de nuevo
         predMap, distMap = nx.floyd_warshall_predecessor_and_distance(graph, weight='distancia')
+        print("Coneccion agregada al grafo...")
     elif(opcion == "3"):
         print("Ingrese ciudad origen: ")
         ciudad1 = input()
@@ -56,6 +59,7 @@ while (opcion != "6"):
         graph.remove_edge(ciudad1, ciudad2)
         # ejecutar el algoritmo de floyd de nuevo
         predMap, distMap = nx.floyd_warshall_predecessor_and_distance(graph, weight='distancia')
+        print("Coneccion eliminada del grafo...")
     elif(opcion == "4"):
         print("Ingrese ciudad origen: ")
         ciudad1 = input()
@@ -69,6 +73,7 @@ while (opcion != "6"):
             camino.append(ciudad2)
         print(list(reversed(camino)))
     elif(opcion == "5"):
+        # imprimir matriz de adyacencia
         print(nx.adjacency_matrix(graph).todense())
     elif(opcion == "6"):
         print("Saliendo del programa...")
